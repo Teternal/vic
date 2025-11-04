@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>儿童识字小天地</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <h1>儿童识字小天地</h1>
+      <p class="tagline">用有趣的方式认识汉字、练习发音、积累词汇。</p>
+    </header>
+
+    <main>
+      <section class="category-section" aria-labelledby="category-title">
+        <div class="section-heading">
+          <h2 id="category-title">识字主题</h2>
+          <p class="section-subtitle">挑选一个感兴趣的主题来开始学习吧！</p>
+        </div>
+        <div id="category-list" class="category-list" role="tablist"></div>
+      </section>
+
+      <section class="card-section" aria-labelledby="card-title">
+        <div class="section-heading">
+          <h2 id="card-title">本次学习</h2>
+          <div class="card-progress">
+            <span id="progress-text"></span>
+            <div class="progress-bar" aria-hidden="true">
+              <div id="progress-inner"></div>
+            </div>
+          </div>
+        </div>
+        <article class="learning-card" aria-live="polite">
+          <div class="card-main">
+            <p id="card-character" class="card-character" role="heading" aria-level="3"></p>
+            <button id="speak-btn" class="ghost-btn" type="button" aria-label="播放汉字发音">🔊 发音</button>
+          </div>
+          <dl class="card-details">
+            <div>
+              <dt>拼音</dt>
+              <dd id="card-pinyin"></dd>
+            </div>
+            <div>
+              <dt>含义</dt>
+              <dd id="card-meaning"></dd>
+            </div>
+            <div>
+              <dt>笔画提示</dt>
+              <dd id="card-strokes"></dd>
+            </div>
+            <div>
+              <dt>示例</dt>
+              <dd id="card-example"></dd>
+            </div>
+          </dl>
+          <div class="card-actions">
+            <div class="action-group">
+              <button id="prev-btn" type="button">上一张</button>
+              <button id="next-btn" type="button">下一张</button>
+              <button id="random-btn" type="button">随机一张</button>
+            </div>
+            <button id="favorite-btn" class="accent" type="button">收藏到生字本</button>
+          </div>
+        </article>
+      </section>
+
+      <section class="favorites-section" aria-labelledby="favorites-title">
+        <div class="section-heading">
+          <h2 id="favorites-title">我的生字本</h2>
+          <p class="section-subtitle">收藏的汉字会集中在这里，方便复习。</p>
+        </div>
+        <ul id="favorites-list" class="favorites-list" aria-live="polite"></ul>
+      </section>
+
+      <section class="quiz-section" aria-labelledby="quiz-title">
+        <div class="section-heading">
+          <h2 id="quiz-title">挑战小测验</h2>
+          <p class="section-subtitle">根据提示选出正确的汉字，检验学习成果！</p>
+        </div>
+        <div class="quiz-card">
+          <div class="quiz-status">
+            <span id="quiz-score">准备开始测验吧！</span>
+            <button id="start-quiz-btn" type="button">开始测验</button>
+            <button id="next-question-btn" type="button" class="ghost-btn" disabled>下一题</button>
+          </div>
+          <div id="quiz-question" class="quiz-question"></div>
+          <div id="quiz-options" class="quiz-options" role="group" aria-label="测验选项"></div>
+          <p id="quiz-feedback" class="quiz-feedback" aria-live="polite"></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>多读、多写、多练习，汉字学习一点也不难！</p>
+    </footer>
+  </div>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>
