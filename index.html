@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sunny Words Lab</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__text">
+      <p class="eyebrow">Playful English Lab</p>
+      <h1>Sunny Words Lab</h1>
+      <p class="lede">Explore new words, build silly sentences, and play mini games. Designed for young learners who love color, sound, and quick wins.</p>
+      <div class="hero__actions">
+        <button id="startPlay" class="btn btn--primary">Start a Play Session</button>
+        <button id="shuffleTheme" class="btn btn--ghost">Surprise me!</button>
+      </div>
+      <div class="hero__note">Tip: Tap the speaker on any card to hear the word.</div>
+    </div>
+    <div class="hero__badge">
+      <div class="sun">☀️</div>
+      <div class="badge">Let’s learn<br/>and laugh!</div>
+    </div>
+  </header>
+
+  <main class="grid">
+    <section class="panel" aria-labelledby="word-garden">
+      <header class="panel__header">
+        <div>
+          <p class="eyebrow">Vocabulary garden</p>
+          <h2 id="word-garden">Explore words</h2>
+        </div>
+        <div class="controls">
+          <label class="select">
+            <span>Theme</span>
+            <select id="themeSelect" aria-label="Choose a word theme">
+              <option value="animals">Animals</option>
+              <option value="food">Food</option>
+              <option value="school">School</option>
+              <option value="nature">Nature</option>
+              <option value="feelings">Feelings</option>
+            </select>
+          </label>
+          <button id="newCards" class="btn btn--ghost">New cards</button>
+        </div>
+      </header>
+      <div id="cardList" class="card-grid" role="list"></div>
+    </section>
+
+    <section class="panel panel--wide" aria-labelledby="game-hub">
+      <header class="panel__header">
+        <div>
+          <p class="eyebrow">Game hub</p>
+          <h2 id="game-hub">Mini games</h2>
+        </div>
+        <div class="score" aria-live="polite">
+          <span>⭐ Points:</span>
+          <strong id="score">0</strong>
+          <span class="dot">•</span>
+          <span>🔥 Streak:</span>
+          <strong id="streak">0</strong>
+        </div>
+      </header>
+
+      <div class="game-tabs" role="tablist" aria-label="Word games">
+        <button class="tab active" role="tab" aria-selected="true" aria-controls="matchGame" id="tab-match">Quick Match</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="sentenceGame" id="tab-sentence">Sentence Builder</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="scrambleGame" id="tab-scramble">Letter Scramble</button>
+      </div>
+
+      <div class="tab-panel" id="matchGame" role="tabpanel">
+        <div class="game-header">
+          <h3>Quick Match</h3>
+          <p>Pick the word that fits the clue. Earn extra points for streaks!</p>
+        </div>
+        <div id="matchPrompt" class="prompt"></div>
+        <div id="matchOptions" class="options"></div>
+        <div class="feedback" id="matchFeedback" aria-live="polite"></div>
+      </div>
+
+      <div class="tab-panel hidden" id="sentenceGame" role="tabpanel">
+        <div class="game-header">
+          <h3>Sentence Builder</h3>
+          <p>Drag the word bubbles into the right order to make a smooth sentence.</p>
+        </div>
+        <div id="sentenceTarget" class="prompt"></div>
+        <div id="sentencePool" class="chips" aria-label="Scrambled sentence pool"></div>
+        <div class="feedback" id="sentenceFeedback" aria-live="polite"></div>
+      </div>
+
+      <div class="tab-panel hidden" id="scrambleGame" role="tabpanel">
+        <div class="game-header">
+          <h3>Letter Scramble</h3>
+          <p>Unscramble the letters to spell the word.</p>
+        </div>
+        <div id="scramblePrompt" class="prompt"></div>
+        <div class="scramble-input">
+          <input id="scrambleAnswer" type="text" placeholder="Type the word" autocomplete="off" />
+          <button id="scrambleSubmit" class="btn btn--primary">Check</button>
+        </div>
+        <div class="feedback" id="scrambleFeedback" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <section class="panel panel--wide" aria-labelledby="activity-ideas">
+    <header class="panel__header">
+      <div>
+        <p class="eyebrow">Ideas for grown-ups</p>
+        <h2 id="activity-ideas">Bring the fun offline</h2>
+      </div>
+    </header>
+    <ul class="tips">
+      <li>Act out each new word like charades and let kids guess.</li>
+      <li>Use the sentence builder as a story starter. Ask: “What happens next?”</li>
+      <li>Let kids record their own voice reading a sentence and replay it.</li>
+      <li>Pick a “word of the day” and draw it together.</li>
+    </ul>
+  </section>
+
+  <footer class="footer">
+    Made with ☀️ for curious learners. Switch themes anytime to refresh the words.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
